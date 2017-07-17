@@ -1,0 +1,50 @@
+<view class="main">
+  <view class="price">¥{{price}}</view>
+  <view class="order_type">{{order_type}}</view>
+</view>
+<view class="pay_way">
+  <view class="way_cell wa-item" data-id="0" bindtap="toPay">
+    <view class="f-left grid-icon grid-icon-wallet"></view>
+    <text class="amount">余额支付( 余额 ：¥{{amount}})</text>
+   <image class="btn-more" src="../../image/index/btn_more.png"></image>
+  </view>
+  <view class="way_cell wa-item" data-id="1" bindtap="toPay">
+    <view class="f-left grid-icon icon-weixin"></view>
+    <text class="amount">微信支付</text>
+   <image class="btn-more" src="../../image/index/btn_more.png"></image>
+  </view>
+</view>
+<view wx:if="{{wallets_password_flag}}" class="wallets-password">
+  <view class="input-content-wrap">
+    <view class="top">
+      <view catchtap="close_wallets_password" class="close">×</view>
+      <view class="txt">请输入支付密码</view>
+      <view catchtap="modify_password" class="forget"></view>
+    </view>
+    <view class="actual_fee">
+      <span>￥</span>
+      <text>{{price}}</text>
+    </view>
+    <view catchtap="set_Focus" class="input-password-wrap">
+      <view class="password_dot">
+        <i wx:if="{{wallets_password.length>=1}}"></i>
+      </view>
+      <view class="password_dot">
+        <i wx:if="{{wallets_password.length>=2}}"></i>
+      </view>
+      <view class="password_dot">
+        <i wx:if="{{wallets_password.length>=3}}"></i>
+      </view>
+      <view class="password_dot">
+        <i wx:if="{{wallets_password.length>=4}}"></i>
+      </view>
+      <view class="password_dot">
+        <i wx:if="{{wallets_password.length>=5}}"></i>
+      </view>
+      <view class="password_dot">
+        <i wx:if="{{wallets_password.length>=6}}"></i>
+      </view>
+    </view>
+  </view>
+  <input bindinput="set_wallets_password" class="input-content" password type="number" focus="{{isFocus}}" maxlength="6" />
+</view>

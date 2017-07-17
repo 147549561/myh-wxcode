@@ -1,0 +1,71 @@
+@import "../../utils/wxParse/wxParse.wxss";
+.wxParse-p{
+  margin: 10px 0;
+  text-indent: 2rem;
+  color: #666;
+  line-height:165%;
+}
+page{
+  background-color: #fff;
+}
+
+.medicalName{
+  color: #000;
+  text-align: center;
+  margin: 10px 0 0 0;
+  font-size: 30rpx;
+  font-weight: bold;
+}
+
+.wxParse-img {
+  margin: 10px 0 5px;
+}
+.m-content{
+  margin: 0 5px;padding:0 0 100rpx;
+}
+
+
+.mui-bar {
+  position: fixed;
+  z-index: 10;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  height: 100rpx;
+  padding-left: 20rpx;
+  border-bottom: 0;
+  background-color: #ffffff;
+  -webkit-box-shadow: 0 0 1px #ccc;
+  box-shadow: 0 0 1px #ccc;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.price{
+  font-size: 26rpx;
+  margin:6rpx 0 0 2rpx;
+}
+.price_left {
+  color: #33A2D7;
+  font-size: 28rpx;
+  display: inline-block;
+}
+
+.price_right {
+  width: 30%;
+  float: right;
+  font-size: 28rpx;
+  height: 100%;
+  color: #6d3f12;
+  background-color: #fcd865;
+  line-height: 100rpx;
+  border-radius: 0;
+}
+
+.label{
+  color: #666;
+}
+.unit{
+  font-size: 20rpx;
+  margin:0 10rpx;
+}

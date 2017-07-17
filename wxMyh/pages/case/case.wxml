@@ -1,0 +1,45 @@
+<view bindtap="toAdd" class="add-icon">新增病历</view>
+<block wx:for="{{resData}}" wx:for-item="item">
+<view class="record-item">
+  <view class="item-content">
+    <view class="lable-line">{{item.illName}}</view>
+    <view class="content">
+      <view class="item-line">
+        就 诊 人:
+        <text>{{item.realname}}</text>
+      </view>
+       <view class="item-line">
+        基础状况:<text>
+        <text wx:if="{{item.sex ==  1}}"> 男 ,</text>
+        <text wx:else> 女 ,</text>{{item.age}}岁
+        </text>
+      </view>
+      <view class="item-line">
+        过 敏 史:
+       <text>{{item.allergyHistory}}</text>
+      </view>
+      <view class="item-line">
+        诊 断:
+        <text>{{item.result}}</text>
+      </view>
+      <view class="item-line">
+        分 期:
+       <text wx:if="{{item.stages ==  1}}"> Ⅰ期 </text>
+       <text wx:elif="{{item.stages ==  2}}"> Ⅱ期 </text>
+       <text wx:elif="{{item.stages ==  3}}"> Ⅲ期 </text>
+       <text wx:elif="{{item.stages ==  4}}"> Ⅳ期 </text>
+       <text wx:else> 无 </text>
+      </view>
+      <view class="item-line">
+        基本病情:
+        <text>{{item.situation}}</text>
+      </view>
+    </view>
+    <view class="bottom" bindtap="del" data-id="{{item.illId}}">
+      <view class="grid-icon icon-del"></view><text class="text-del">删除</text>
+    </view>
+  </view>
+</view>
+</block>
+<import src="../../component/message/message.wxml"/>
+<template is="message" data="{{message: message}}"/>

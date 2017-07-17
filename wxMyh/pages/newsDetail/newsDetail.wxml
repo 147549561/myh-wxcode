@@ -1,0 +1,5 @@
+<import src="../../utils/wxParse/wxParse.wxml"/>
+<view class="m-content"><view class="medicalName">{{name}}</view>
+<view class="info">作者 : {{author}}{{time}}</view>
+<template is="wxParse" data="{{wxParseData:content.nodes}}"/>
+</view>

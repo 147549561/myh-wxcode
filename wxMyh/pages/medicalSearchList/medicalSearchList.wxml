@@ -1,0 +1,20 @@
+<view class="search-bar">
+  <input class="search-txt" placeholder-class="search-txt-plc" focus="true" confirm-type="search" bindconfirm="bindconfirm" value="{{keyword}}" placeholder="输入您要查找的药品" type="text" />
+</view>
+<block wx:if="{{showLoading}}">
+  <view class="loading">努力加载中…</view>
+</block>
+<block wx:else>
+  <view class="film">
+ 
+    <view wx:for="{{resData}}" class="wa-item wa-item-thumbnail-left">
+     <navigator url="../medicalDetail/medicalDetail?mid={{item.mid}}"  class="navigator-hover">
+        <text class="icon-right ion-chevron-right"></text>
+        <image class="item-img" src="{{imgServer + item.thumbnail}}"></image>
+        <view class="hospital-name"> {{item.medicineName}}</view>
+        <view class="hospital-address">{{item.outline}}</view>
+         </navigator>
+    </view>
+   
+  </view>
+</block>

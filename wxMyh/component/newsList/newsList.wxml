@@ -1,0 +1,21 @@
+<template name="newsList">
+  <block wx:if="{{showLoading}}">
+    <view class="loading">努力加载中...</view>
+  </block>
+  <block wx:else>
+    <view class="film">
+      <view wx:for="{{resData}}" class="wa-item wa-item-thumbnail-left" data-id="{{item.nid}}" bindtap="toNewsDetail">
+        <text class="icon-right ion-chevron-right"></text>
+        <image class="item-img" src="{{imgServer + item.thumbnail}}"></image>
+        <view class="medical-name min-h"> {{item.title}}</view>
+        <view class="medical-outline"><text class="news-tag">{{item.tag}}</text><text class="news-info">{{item.author}}<text class="info-time">{{item.createTime}}</text></text></view>
+      </view>
+      <block wx:if="{{hasMore}}">
+        <view class="loading-tip">上拉加载更多</view>
+      </block>
+      <block wx:else>
+        <view class="loading-tip">没有更多内容了</view>
+      </block>
+    </view>
+  </block>
+</template>

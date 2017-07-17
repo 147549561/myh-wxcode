@@ -1,0 +1,26 @@
+<template name="doctorList">
+  <block wx:if="{{showLoading}}">
+    <view class="loading">努力加载中...</view>
+  </block>
+  <block wx:else>
+    <view class="film">
+      <view wx:for="{{resData}}" class="wa-item wa-item-thumbnail-left" data-id="{{item.uid}}" bindtap="toDoctorDetail">
+        <text class="icon-right ion-chevron-right"></text>
+        <image class="item-img" src="{{imgServer + item.avatar}}"></image>
+        <view class="doctor-name"> {{item.nickname}}
+          <view class="doc-level">{{item.docLevel}}</view>
+        </view>
+        <view class="hospitalName">
+          <image class="doctor-icon" src="../../image/hospital.png"></image> {{item.hospitalName}}</view>
+        <view class="officeName">
+          <image class="doctor-icon" src="../../image/type.png"></image> {{item.officeName}}</view>
+      </view>
+      <block wx:if="{{hasMore}}">
+        <view class="loading-tip">上拉加载更多</view>
+      </block>
+      <block wx:else>
+        <view class="loading-tip">没有更多内容了</view>
+      </block>
+    </view>
+  </block>
+</template>

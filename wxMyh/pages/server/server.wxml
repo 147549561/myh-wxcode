@@ -1,0 +1,4 @@
+<import src="../../component/serverList/serverList.wxml"/>
+<template is="serverList" data="{{geneList: geneList, hasMore: hasMore, showLoading: showLoading}}"/>
+<import src="../../component/message/message.wxml"/>
+<template is="message" data="{{message: message}}"/>

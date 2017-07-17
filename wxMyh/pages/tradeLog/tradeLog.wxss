@@ -1,0 +1,22 @@
+.money {
+  float: right;
+  color: #0bb9f6;
+  position: relative;
+  top: 10rpx;
+  font-size: 32rpx;
+}
+
+.title {
+  color: #333;
+  font-size: 32rpx;
+}
+
+.time {
+  color: #999;
+  margin: 18rpx  0 0;
+}
+
+.wa-item {
+  height: auto;
+}
+

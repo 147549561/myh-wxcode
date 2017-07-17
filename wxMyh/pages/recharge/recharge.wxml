@@ -1,0 +1,11 @@
+<form bindsubmit="toPay">
+    <view class="form-list">
+        <view class="form-item">
+                <view class="form-item-hd">充值金额 : </view>
+            <view class="form-item-bd">
+                <input class="input" type="text" name="amount" value="100"/>
+            </view>
+        </view>
+    </view>
+    <button formType="submit" class="edit-btn">微信支付</button>
+</form>

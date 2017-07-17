@@ -1,0 +1,8 @@
+<view>
+  <view class="wa-list">
+    <view wx:for="{{resData}}" class="wa-item">
+      <text class="title">{{item.tradeDesc}}</text><text class="money">{{item.mark}}{{item.tradeVolume}}</text>
+      <view class="time">{{item.tradeTime}}</view>
+    </view>
+  </view>
+</view>

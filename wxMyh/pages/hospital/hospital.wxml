@@ -1,0 +1,4 @@
+<import src="../../component/hospitalList/hospital.wxml"/>
+<template is="hospitalList" data="{{resData: resData, hasMore: hasMore, showLoading: showLoading,imgServer:imgServer}}"/>
+<import src="../../component/message/message.wxml"/>
+<template is="message" data="{{message: message}}"/>

@@ -1,0 +1,17 @@
+.content {
+  margin: 40rpx 20rpx;
+  color: #666;
+  border-bottom: 1px solid #dedede
+}
+
+.content view {
+  margin: 20rpx 0;
+}
+
+.status {
+  color: #6cb327;
+}
+
+.content view text {
+  margin: 0 30rpx;
+}

@@ -1,0 +1,23 @@
+@import '../../component/list/list.wxss';
+.money_div{
+  background-color: #0bb9f6;
+  text-align: center;
+  height: 360rpx;
+  color: #fff;
+}
+
+
+.money_title{
+padding:112rpx 0 0;
+font-size: 40rpx
+}
+
+.money{
+  margin: 30rpx 0 0;
+  font-size: 40rpx
+}
+
+.cells {
+  margin:0;
+}
+

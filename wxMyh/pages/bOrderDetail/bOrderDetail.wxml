@@ -1,0 +1,30 @@
+<view class="content">
+  <view >
+    <text>患 者 姓 名 : </text><text>{{contacts}}</text>
+  </view>
+  <view >
+    <text>患 者 性 别 : </text><text>
+      <block  wx:if="'1' == {{sex}}">男</block><block  wx:else>女</block>
+    </text>
+  </view>
+  <view >
+    <text>指 定 医 生 : </text><text>{{docName}}</text>
+  </view>
+  <view >
+    <text>挂 号 时 间 : </text><text>{{appointTime}}</text>
+  </view>
+  <view >
+    <text>联 系 手 机 : </text><text>{{appointTel}}</text>
+  </view>
+  <view >
+    <text>已 付 定 金 : </text><text>{{price}}</text>
+  </view>
+  <view >
+    <text>医 院 地 址 : </text><text>{{hosAddr}}</text>
+  </view>
+  <view >
+    <text>订 单 状 态 : </text><text class="status">{{status}}</text>
+  </view>
+  <block wx:if = "{{clsCancelShow}}"><button  data-id="{{orderId}}">取消预约</button></block>
+  <block wx:if = "{{clsPayShow}}"><button  data-id="{{orderId}}">支付</button></block>
+</view>

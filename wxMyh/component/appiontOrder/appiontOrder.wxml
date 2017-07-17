@@ -1,0 +1,25 @@
+<template name="appiontList">
+  <block wx:if="{{showLoading}}">
+    <view class="loading">努力加载中...</view>
+  </block>
+  <block wx:else>
+      <block wx:for="{{resData}}" >
+        <view bindtap="toDetail" class="item" data-id="{{item.id}}">
+          <view>
+            <text>{{item.docName}}</text><text class="hos_name">  ({{item.hosName}})  </text>
+            <text class="status {{item.statusClass}}">{{item.status}}</text>
+          </view>
+          <view class="hos_addr">
+            <view class="addr">地址 : {{item.address}}</view>
+            <view class="time">预约时间 : {{item.dateline}}</view>
+          </view>
+        </view>
+      </block>
+      <block wx:if="{{hasMore}}">
+        <view class="loading-tip">上拉加载更多</view>
+      </block>
+      <block wx:else>
+        <view class="loading-tip">没有更多内容了</view>
+      </block>
+  </block>
+</template>

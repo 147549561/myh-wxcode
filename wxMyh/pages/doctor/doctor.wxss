@@ -1,0 +1,45 @@
+@import "../../comn/animation.wxss";
+
+
+.film{
+  padding-top:88rpx;
+}
+
+.wa-item-thumbnail-left .item-img {
+  border-radius: 140rpx;
+  height: 140rpx;
+  width: 140rpx;
+  top:26rpx;
+}
+
+.doctor-name {
+  color: #333;
+}
+
+.doc-level{
+  font-size:24rpx;
+color:#999;
+display:inline-block;
+margin:0 0 0 12rpx;
+}
+
+
+.hospitalName,.officeName{
+  color: #666;
+  margin: 6px 0 0 0
+}
+
+.doctor-icon{
+  width: 15px;
+  height: 16px;
+  position: relative;
+  top:2px;
+}
+
+.loading-tip {
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  color: #ccc;
+}

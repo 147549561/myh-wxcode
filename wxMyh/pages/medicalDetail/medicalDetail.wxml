@@ -1,0 +1,16 @@
+<import src="../../utils/wxParse/wxParse.wxml"/>
+<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" class="banners" style="height:{{bannerHei}}" interval="{{interval}}" duration="{{duration}}">
+    <block wx:for="{{banner}}">
+      <swiper-item class="banner">
+        <image src="{{imgServer + item}}"  class="banner-image" width="100%" height="100%" />
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class="medicalName">{{medicalname}}</view>
+  <view class="body">
+      <template is="wxParse" data="{{wxParseData:content.nodes}}"/>
+  </view>
+  <view class="mui-bar">
+    <button class="tel" bindtap="toTel">电话咨询</button><button open-type="contact" class="online">在线客服</button>
+  </view>
+

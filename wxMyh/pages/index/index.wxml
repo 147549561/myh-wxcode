@@ -1,0 +1,61 @@
+<!--index.wxml-->
+<view class="m-body">
+  <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" class="banners" style="height:{{bannerHei}}" interval="{{interval}}" duration="{{duration}}">
+    <block wx:for="{{banner}}">
+      <navigator url="../newsDetail/newsDetail?nid={{item.nid}}">
+      <swiper-item class="banner">
+        <image src="{{imgServer + item.img}}" data-id="{{item.nid}}" class="banner-image" width="100%" height="100%" />
+      </swiper-item>
+       </navigator>
+    </block>
+  </swiper>
+  <view class="big-logo">
+    <block>
+      <view bindtap="toHospital" class="logoinfo">
+        <image src="../../image/index/icon_2.png" />
+        <text class="logotext">在线诊疗</text>
+      </view>
+    </block>
+    <block>
+      <view bindtap="toMedical" class="logoinfo">
+        <image src="../../image/index/icon_01.png" />
+        <text class="logotext">药品中心</text>
+      </view>
+    </block>
+    <block>
+      <view bindtap="toServer" class="logoinfo">
+        <image src="../../image/index/icon_4.png" />
+        <text class="logotext">检测服务</text>
+      </view>
+    </block>
+    <block>
+      <view bindtap="toVaccinum" class="logoinfo">
+        <image src="../../image/index/icon_5.png" />
+        <text class="logotext">疫苗接种</text>
+      </view>
+    </block>
+  </view>
+  <view class="index-list-content">
+    <view bindtap="toDoctor" class="lable-line">优秀名医<image class="btn-more" src="../../image/index/btn_more.png"></image></view>
+    <scroll-view scroll-x="true" class="doctors-scroll-x">
+      <block wx:for-items="{{doctor}}" >
+        <view class="item" data-id="{{item.uid}}" bindtap="toDoctorDetail">
+          <view class="page-column" style="text-align:center">
+            <image src="{{imgServer + item.avatar}}" mode="aspectFill" />
+            <text class="text">{{item.nickname}}<text class="text2">{{item.officeName}}</text></text>
+            <button data-id="{{item.uid}}" bindtap="toBook" class="btn-quick-book">快速预约</button>
+          </view>
+        </view>
+      </block>
+    </scroll-view>
+    <view bindtap="toNews" class="lable-line">最新资讯<image class="btn-more" src="../../image/index/btn_more.png"></image></view>
+    <scroll-view scroll-y style="height: 100%;" scroll-top="300">
+      <view wx:for="{{news}}" class="wa-item wa-item-thumbnail-left" data-id="{{item.nid}}" bindtap="toNewsDetail">
+        <text class="icon-right ion-chevron-right"></text>
+        <image class="item-img" src="{{imgServer + item.thumbnail}}"></image>
+        <view class="medical-name min-h"> {{item.title}}</view>
+        <view class="medical-outline"><text class="news-tag">{{item.tag}}</text><text class="news-info">{{item.author}}<text class="info-time">{{item.createTime}}</text></text></view>
+      </view>
+    </scroll-view>
+  </view>
+</view>

@@ -1,0 +1,63 @@
+<form bindsubmit="toAdd">
+    <view class="form-list">
+        <view class="form-item">
+            <view class="form-item-hd">病历名称 :</view>
+            <view class="form-item-bd">
+                <input type="text" name="illName" value=""/>
+            </view>
+        </view>
+        <view class="form-item">
+            <view class="form-item-hd">姓 名 :</view>
+            <view class="form-item-bd">
+                <input type="text" name="realName" value="" maxlength="8"/>
+            </view>
+        </view>
+        <view class="form-item">
+            <view class="form-item-hd">年 龄 :</view>
+            <view class="form-item-bd">
+                <input type="digit" name="age" value="" maxlength="2"/>
+            </view>
+        </view>
+        <view class="form-item">
+            <view class="form-item-hd">性 别 :</view>
+            <view class="form-item-bd">
+                <picker mode="selector" value="{{sex}}" range="{{genderArray}}" bindchange="changeGender">
+                    <block wx:if="{{sex == ''}}">
+                        <view class="input input-placeholder">请选择性别</view>
+                        <input type="text" name="sex" value="" class="hidden" maxlength="1"/>
+                    </block>
+                    <block wx:else>
+                        <view class="input">{{genderArray[sex]}}</view>
+                        <input type="text" name="sex" value="{{sex}}" class="hidden" maxlength="1"/>
+                    </block>
+                </picker>
+            </view>
+        </view>
+        <view class="form-item">
+            <view class="form-item-hd">过 敏 史 :</view>
+            <view class="form-item-bd">
+                <input type="text" name="allergyHistory" maxlength="10" value="{{allergyHistory}}" placeholder-style="font-size: 28rpx;color:#808080;" placeholder="以往过敏史,10字以内"/>
+            </view>
+        </view>
+         <view class="form-item">
+            <view class="form-item-hd">诊断结果 :</view>
+            <view class="form-item-bd">
+                <input type="text" name="result" value=""/>
+            </view>
+        </view>
+        <view class="form-item">
+            <view class="form-item-hd">分 期 :</view>
+            <input type="text" name="stages" value="{{stages}}" class="hidden"/>
+            <view class="form-item-bd" style="line-height:70rpx;color:#808080;">
+                <picker mode="selector" value="{{index}}" range="{{picker_arr}}"  bindchange="changeStages">
+                      {{picker_arr[index]}}
+                </picker>
+            </view>
+        </view>
+        <view class="form-item">
+            <view class="form-item-hd">基本病情 :</view>
+            <textarea placeholder="字数限制300字" name="situation" maxlength="300" />
+        </view>
+    </view>
+    <button formType="submit" class="edit-btn">保存</button>
+</form>

@@ -1,0 +1,84 @@
+<form bindsubmit="toBook">
+    <view class="form-list">
+        <view class="form-item">
+            <view class="form-item-hd">预约定金 :</view>
+            <view class="form-item-bd">
+                <input type="text" name="fee" disabled="true" value="{{fee}}"/>
+            </view>
+        </view>
+         <view class="form-item">
+            <view class="form-item-hd">医院地址 :</view>
+            <view class="form-item-bd">
+                <input type="text" disabled="true" name="userAddr" value="{{address}}"/>
+            </view>
+        </view>
+         <view class="form-item">
+            <view class="form-item-hd">选择日期 :</view>
+            <view class="form-item-bd">
+                <picker mode="date" value="{{appointTimeOfDate}}" start="{{appointTimeBeginDateOfDate}}" end="2020-05-05" bindchange="changeAppointTimeOfDate">
+                        <view class="input input-placeholder">{{appointTimeOfDate}}</view>
+                        <input type="text" name="appointTimeOfDate" value="{{appointTimeOfDate}}" class="hidden"/>
+                </picker>
+            </view>
+        </view>
+        <view class="form-item">
+            <view class="form-item-hd">选择时间 :</view>
+            <view class="form-item-bd">
+                <picker mode="time" value="{{appointTimeOfTime}}" start="{{appointTimeBeginDateOfTime}}" end="22:00" bindchange="changeAppointTimeOfTime">
+                        <view class="input input-placeholder">{{appointTimeOfTime}}</view>
+                        <input type="text" name="birthday" value="{{appointTimeOfTime}}" class="hidden"/>
+                </picker>
+            </view>
+        </view>
+         <view class="form-item">
+            <view class="form-item-hd">联 系 人 :</view>
+            <view class="form-item-bd">
+                <input type="text" name="person" value="{{person}}"/>
+            </view>
+        </view>
+        <view class="form-item">
+            <view class="form-item-hd">性 别 :</view>
+            <view class="form-item-bd">
+                <picker mode="selector" value="{{sex}}" range="{{genderArray}}" bindchange="changeGender">
+                    <block wx:if="{{sex == ''}}">
+                        <view class="input input-placeholder">请选择性别</view>
+                        <input type="text" name="sex" value="" class="hidden" maxlength="1"/>
+                    </block>
+                    <block wx:else>
+                        <view class="input">{{genderArray[sex]}}</view>
+                        <input type="text" name="sex" value="{{genderArray[sex]}}" class="hidden" maxlength="1"/>
+                    </block>
+                </picker>
+            </view>
+        </view>
+        <view class="form-item">
+            <view class="form-item-hd">出生年月:</view>
+            <view class="form-item-bd">
+                <picker mode="date" value="{{birthday}}" start="1900-01-01" end="{{birthdayEndDate}}" bindchange="changeBirthday">  
+                      <view class="input input-placeholder">{{birthday}}</view>
+                      <input type="text" name="birthday" value="{{birthday}}" class="hidden" maxlength="10"/>
+                </picker>
+            </view>
+        </view>
+        <view class="form-item">
+            <view class="form-item-hd">联系电话 :</view>
+            <view class="form-item-bd">
+                <input type="text" class="input-placeholder"  disabled="true" name="telephone" maxlength="11" value="{{telephone}}" placeholder="请输入联系电话"/>
+            </view>
+        </view>
+        <view class="form-item">
+            <view class="form-item-hd">选择病历 :</view>
+            <input type="text" name="illId" value="{{illId}}" class="hidden"/>
+            <view class="form-item-bd" style="line-height:70rpx;color:#808080;">
+                <picker mode="selector" value="{{index}}" range="{{picker_arr}}"  bindchange="changeIllId">
+                      <text>{{picker_arr[index]}}</text>
+                </picker>
+            </view>
+        </view>
+        <view class="form-item">
+            <view class="form-item-hd">备 注 :</view>
+            <textarea placeholder="字数限制100字" name="remark" maxlength="100" />
+        </view>
+    </view>
+    <button formType="submit" class="edit-btn">提交预约</button>
+</form>

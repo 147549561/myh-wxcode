@@ -1,0 +1,12 @@
+<import src="../../utils/wxParse/wxParse.wxml" />
+<view class="m-content">
+  <view class="medicalName">{{name}}</view>
+  <template is="wxParse" data="{{wxParseData:content.nodes}}" />
+</view>
+<view class="mui-bar">
+  <view class="price_left">
+    <view class="price"><text class="label">定金：</text><text class="unit">¥</text>{{price}}</view>
+    <view class="price"><text class="label">剩余款项（到港支付）</text><text class="unit">¥</text>{{remainAmount}}</view>
+  </view>
+  <button bindtap="vaccinumPayView" class="price_right">付款</button>
+</view>

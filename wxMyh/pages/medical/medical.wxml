@@ -1,0 +1,39 @@
+<view class="search-bar">
+    <input class="search-txt" placeholder-class="search-txt-plc" confirm-type="search" bindfocus="bindfocus"  value="{{keyword}}" placeholder="点击查找药品" type="text"/>
+</view>
+<view class="container2">
+  <view class="nav_left">
+    <scroll-view scroll-y class="scroll-left">
+      <block wx:for="{{navLeftItems}}">
+        <view class="nav_left_items {{curNav == item.cid ? 'active' : ''}}" bindtap="switchRightTab" data-index="{{index}}" data-id="{{item.cid}}">{{item.cateName}}</view>
+      </block>
+    </scroll-view>
+  </view>
+  <view class="nav_right">
+    <scroll-view scroll-y class="scroll-right">
+      <view wx:if="{{navRightItems}}">
+        <block wx:for="{{navRightItems}}">
+          <view class="nav_right_items">
+            <navigator url="../medicalDetail/medicalDetail?mid={{item.mid}}">
+              <view>
+                <block wx:if="{{item.thumbnail}}">
+                  <image src="{{imgServer + item.thumbnail}}"></image>
+                </block>
+                <block wx:else>
+                  <image src="../../image/default-news.png"></image>
+                </block>
+              </view>
+              <view wx:if="{{item.medicineName}}">
+                <text class="medical-name">{{item.medicineName}}</text>
+              </view>
+              <view wx:else>
+                <text class="medical-name">暂无名称</text>
+              </view>
+            </navigator>
+          </view>
+        </block>
+      </view>
+      <view class="medical-name" wx:else>暂无对应药品</view>
+    </scroll-view>
+  </view>
+</view>

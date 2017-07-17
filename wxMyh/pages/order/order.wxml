@@ -1,0 +1,27 @@
+<block wx:if="{{showLoading}}">
+    <view class="loading">努力加载中…</view>
+  </block>
+  <block wx:else>
+    <view class="film">
+      <view wx:for="{{resData}}" class="wa-item wa-item-thumbnail-left">
+        <view data-orderType="{{item.orderType}}" data-id="{{item.gid}}" bindtap="toDetail">
+        <text class="icon-right ion-chevron-right"></text>
+        <image class="item-img" src="{{imgServer + item.thumbnail}}"></image>
+        <view class="hospital-name"> {{item.packageTitle}}</view>
+        <view class="line-2"><text class="price">合计 : ¥ {{item.price}}</text><text class="float-right {{item.statusClass}}">{{item.status}}</text></view>
+        </view>
+        <block wx:if="{{item.flag}}">
+          <view class="bottom">
+          <button class="btn-cancel" data-id="{{item.oid}}"  bindtap="toCancel">取消</button>
+          <button class="btn-buy" data-id="{{item.oid}}" data-price="{{item.price}}" data-orderType="{{item.orderType}}" bindtap="toPay">付款</button>
+        </view>
+        </block>
+      </view>
+      <block wx:if="{{hasMore}}">
+        <view class="loading-tip">上拉加载更多</view>
+      </block>
+      <block wx:else>
+        <view class="loading-tip">没有更多内容了</view>
+      </block>
+    </view>
+  </block>

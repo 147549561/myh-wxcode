@@ -1,0 +1,21 @@
+<view class="container">
+    <view class="user-info">
+        <image src="{{userInfo.avatarUrl}}" class="user-avatar"></image>
+        <view class="user-nickname">
+            {{userInfo.nickName}}
+        </view>
+        <view class="user-location">{{userInfo.province}},{{userInfo.city}}</view>
+    </view>
+    <view class="grids">
+        <block wx:for="{{gridList}}" wx:for-item="gridItem" wx:for-index="gridIndex" wx:key="grid">
+            <view class="grid" bindtap="viewGridDetail" data-url="{{gridItem.enName}}">
+                <view class="grid-icon grid-icon-{{gridItem.enName}}"></view>
+                <view class="grid-title">{{gridItem.zhName}}</view>
+            </view>
+        </block>
+        <button open-type="contact" class="grid" style="right:3rpx;">
+            <view class="grid-icon grid-icon-contact"></view>
+            <view class="grid-title">{{contact_label}}</view>
+        </button>
+    </view>
+</view>

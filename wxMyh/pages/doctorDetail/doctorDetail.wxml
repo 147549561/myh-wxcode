@@ -1,0 +1,77 @@
+<view class="container">
+  <view class="user-info">
+    <image src="{{imgServer + avatar}}" class="user-avatar"></image>
+    <view class="user-nickname">{{nickName}}
+      <text class="cls">( {{docLevel}} )</text>
+    </view>
+    <view class="user-nickname">{{hospitalName}}
+      <text class="cls">( {{officeName}} )</text>
+    </view>
+    <view class="user-nickname">回答问题：
+      <text class="cls">{{answerNum}}</text>
+    </view>
+  </view>
+  <view class="main">
+   <view class="big-logo">
+    <block>
+      <view class="logoinfo">
+        <image src="../../image/note.png" />
+        <text class="logotext">留言问答</text>
+      </view>
+    </block>
+    <block>
+      <view class="logoinfo">
+        <image src="../../image/online.png" />
+        <text class="logotext">在线问诊</text>
+      </view>
+    </block>
+    <block>
+      <view bindtap="toBook" class="logoinfo" style="border-right:0">
+        <image src="../../image/appointment.png" />
+        <text class="logotext">预约挂号</text>
+      </view>
+    </block>
+  </view>
+  <view class="bg-line"></view>
+    <view class="summary">
+      <view class="lable-line">
+        <text class="til">简介:</text>
+      </view>
+      <view class="summary-text">{{summary}}</view>
+    </view>
+    <view class="bg-line"></view>
+    <view class="goodAt">
+      <view class="lable-line">
+        <text class="til">擅长:</text>
+      </view>
+      <view class="goodAt-text">{{goodAt}}</view>
+    </view>
+    <view class="bg-line"></view>
+    <view class="goodAt">
+      <view class="lable-line">
+        <text class="til">评价:</text>
+      </view>
+      <block wx:if="{{showLoading}}">
+        <view class="loading">努力加载中...</view>
+      </block>
+      <block wx:else>
+        <view class="film">
+          <view wx:for="{{evaluate}}" class="wa-item wa-item-thumbnail-left" data-id="{{item.uid}}">
+            <text class="icon-right ion-chevron-right"></text>
+            <image class="item-img" src="{{imgServer + item.avatar}}"></image>
+            <view class="doctor-name"> {{item.username}}
+              <view class="doc-level">{{item.evaluateTime}}</view>
+            </view>
+            <view class="hospitalName">{{item.content}}</view>
+          </view>
+          <block wx:if="{{hasMore}}">
+            <view class="loading-tip">上拉加载更多...</view>
+          </block>
+          <block wx:else>
+            <view class="loading-tip">没有更多内容了</view>
+          </block>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>

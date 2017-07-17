@@ -1,0 +1,10 @@
+<!--<view class="section">
+  <input placeholder="输入关键字搜索疫苗" confirm-type="search" type="text" bindconfirm="bindconfirm" value="{{keyword}}" />
+</view>-->
+<view class="search-bar">
+    <input class="search-txt" placeholder-class="search-txt-plc" confirm-type="search" bindconfirm="bindconfirm" value="{{keyword}}" placeholder="请输入关键词搜索" type="text"/>
+</view>
+<import src="../../component/serverList/serverList_v.wxml"/>
+<template is="serverList_v" data="{{geneList: geneList, hasMore: hasMore, showLoading: showLoading}}"/>
+<import src="../../component/message/message.wxml"/>
+<template is="message" data="{{message: message}}"/>

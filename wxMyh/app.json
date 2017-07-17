@@ -1,0 +1,77 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/medical/medical",
+    "pages/doctor/doctor",
+    "pages/hospital/hospital",
+    "pages/server/server",
+    "pages/vaccinum/vaccinum",
+    "pages/news/news",
+    "pages/medicalDetail/medicalDetail",
+    "pages/vaccinumDetail/vaccinumDetail",
+    "pages/serverDetail/serverDetail",
+    "pages/newsDetail/newsDetail",
+    "pages/hospitalDoctors/hospitalDoctors",
+    "pages/my/my",
+    "pages/setting/setting",
+    "pages/personInfo/personInfo",
+    "pages/editPersonInfo/editPersonInfo",
+    "pages/doctorDetail/doctorDetail",
+    "pages/bindPhone/bindPhone",
+    "pages/login/login",
+    "pages/book/book",
+    "pages/wallet/wallet",
+    "pages/recharge/recharge",
+    "pages/tradeLog/tradeLog",
+    "pages/bookOrder/bookOrder",
+    "pages/upPayPassword/upPayPassword",
+    "pages/upLoginPassword/upLoginPassword",
+    "pages/feedback/feedback",
+    "pages/pay/pay",
+    "pages/medicalSearchList/medicalSearchList",
+    "pages/case/case",
+    "pages/addCase/addCase",
+    "pages/order/order",
+    "pages/bOrderDetail/bOrderDetail"
+  ],
+  "window": {
+    "backgroundTextStyle": "#fff",
+    "navigationBarBackgroundColor": "#0bb9f6",
+    "navigationBarTitleText": "名医肿瘤科",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#b0b0b0",
+    "selectedColor": "#0bb9f6",
+    "borderStyle": "white",
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "image/index/main.png",
+        "selectedIconPath": "image/index/main_pressed.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/doctor/doctor",
+        "iconPath": "image/index/ask.png",
+        "selectedIconPath": "image/index/ask_pressed.png",
+        "text": "问诊"
+      },
+      {
+        "pagePath": "pages/medical/medical",
+        "iconPath": "image/index/medical.png",
+        "selectedIconPath": "image/index/medical_pressed.png",
+        "text": "药品"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "iconPath": "image/index/mine.png",
+        "selectedIconPath": "image/index/mine_pressed.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "debug": true
+}

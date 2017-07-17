@@ -1,0 +1,31 @@
+@import "../../comn/animation.wxss";
+.wa-item-thumbnail-left .item-img {
+width:200rpx;
+height:120rpx;
+}
+.hospital-name{
+  min-height:80rpx;
+}
+.hospital-address {
+  color: #999;
+}
+
+.wa-item-thumbnail-left {
+padding-left:230rpx;
+min-height:165rpx;
+}
+
+.address-icon{
+  width: 15px;
+  height: 16px;
+  position: relative;
+  top:2px;
+}
+
+.loading-tip {
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  color: #ccc;
+}

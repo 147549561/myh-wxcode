@@ -1,0 +1,55 @@
+
+page{
+  height: 100%;
+}
+
+page text,page view{
+  font-size: 28rpx;
+  font-family: "Helvetica Neue",Helvetica,'microsoft yahei ui', 'microsoft yahei','simhei',Arial,sans-serif
+}
+.wa-item:active{
+  background-color: #e5e5e5;
+}
+.wa-item{
+  width: 100%;
+  border: 1px solid #ddd;
+  margin: -1px 0;  
+  font-size: 32rpx;
+  display: block;
+  color: #444;
+  padding:10px;
+  height: 40px;
+  box-sizing: border-box;
+  position:relative;
+  background-color: #fff;
+}
+.wa-item-thumbnail-left{
+  padding-left:200rpx;
+  min-height: 200rpx;
+}
+.wa-item-thumbnail-left .item-img{
+  position:absolute;
+  top:10px;
+  left: 10px;
+  width: 80px;
+  height: 80px;
+}
+.wa-item-thumbnail-left .icon-right{
+  float: right;
+  font-size: 20px;
+  line-height: 80px;
+  opacity: .4;
+}
+.wa-button-lg{
+    padding: 0 16px;
+    min-width: 150rpx;
+    min-height: 52px;
+    font-size: 20px;
+    line-height: 48px;
+}
+.wa-button:active{
+  border-color: #999;
+  background: #ccc;
+  color: #444
+}
+

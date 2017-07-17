@@ -1,0 +1,7 @@
+<import src="../../component/list/list.wxml"/>
+<view class="money_div">
+    <view class="money_title">账户余额</view>
+    <view class="money">¥ {{money}}</view>
+</view>
+<template is="list" data="{{cells: cells}}"/>
+

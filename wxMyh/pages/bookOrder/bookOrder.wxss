@@ -1,0 +1,48 @@
+@import "../../comn/animation.wxss";
+
+.color_finished {
+  color: #f99800;
+}
+
+.color_false {
+  color: #f00;
+}
+
+.status {
+  font-size: 26rpx;
+}
+
+.unpay{
+  color: red
+}
+
+.payed{
+  color:#33A2D7
+}
+
+.color_common{
+  color: #6cb327
+}
+
+.status{
+  float: right
+}
+
+.item{
+  height:180rpx;
+line-height:56rpx;
+margin:15rpx;
+border-bottom:1px solid #dedede;
+
+}
+.addr,.time{
+  color: #999;
+}
+
+.loading-tip {
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  color: #ccc;
+}
