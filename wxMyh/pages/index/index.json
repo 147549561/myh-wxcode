@@ -1,3 +1,4 @@
 {
-  "navigationBarTitleText": "名医肿瘤科"
+  "navigationBarTitleText": "名医肿瘤科",
+  "enablePullDownRefresh": true
 }

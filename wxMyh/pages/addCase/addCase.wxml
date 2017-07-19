@@ -3,19 +3,19 @@
         <view class="form-item">
             <view class="form-item-hd">病历名称 :</view>
             <view class="form-item-bd">
-                <input type="text" name="illName" value=""/>
+                <input type="text" name="illName" value="" placeholder="请输入病历名称"/>
             </view>
         </view>
         <view class="form-item">
             <view class="form-item-hd">姓 名 :</view>
             <view class="form-item-bd">
-                <input type="text" name="realName" value="" maxlength="8"/>
+                <input type="text" name="realName" value="" maxlength="8" placeholder="请输入姓名"/>
             </view>
         </view>
         <view class="form-item">
             <view class="form-item-hd">年 龄 :</view>
             <view class="form-item-bd">
-                <input type="digit" name="age" value="" maxlength="2"/>
+                <input type="digit" name="age" value="" maxlength="2" placeholder="请输入年龄"/>
             </view>
         </view>
         <view class="form-item">
@@ -42,7 +42,7 @@
          <view class="form-item">
             <view class="form-item-hd">诊断结果 :</view>
             <view class="form-item-bd">
-                <input type="text" name="result" value=""/>
+                <input type="text" name="result" value="" placeholder="请输入诊断结果"/>
             </view>
         </view>
         <view class="form-item">

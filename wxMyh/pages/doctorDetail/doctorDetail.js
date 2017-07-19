@@ -2,7 +2,7 @@ const api = require('../../utils/api.js');
 var util = require('../../utils/util')
 var message = require('../../component/message/message');
 var limit = 5, page = 0;
-var arrEvaluate = [], len = 0, hasMore = true;
+var arrEvaluate = [], len = 0, hasMore = true,that = null;
 Page({
 
   /**
@@ -26,7 +26,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that = this;
+    that = this;
     page = 0;
     that.setData({
       docId: options.docId
@@ -61,7 +61,6 @@ Page({
     })
   },
   onReachBottom: function () {
-    var that = this;
     message.hide.call(that)
     if (that.data.hasMore) {
       //获取数据
@@ -87,9 +86,20 @@ Page({
       });
     }
   },toBook:function(){
-    var that = this
-        wx.navigateTo({
-          url: '../book/book?type=2&docId=' + that.data.docId
-        })
+    wx.navigateTo({
+      url: '../book/book?type=2&docId=' + that.data.docId
+    })
+  }, onShareAppMessage: function () {
+    return {
+      title: that.data.nickName,
+      path: '/pages/doctorDetail/doctorDetail?docId=' + that.data.docId,
+      success: function (res) {
+        // 转发成功
+        console.log("转发成功");
+      },
+      fail: function (res) {
+        // 转发失败
+      }
+    }
   }
 })

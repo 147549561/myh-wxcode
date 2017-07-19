@@ -1,22 +1,31 @@
 @import "../../utils/wxParse/wxParse.wxss";
 
 .wxParse-p {
-  text-indent: 2rem;
   line-height: 50rpx;
 }
 
 .info {
-  text-align: center;
+  text-align: justify;
   color: #999;
-  margin: 5px 0;
+  margin: 10rpx 0 30rpx;
+  font-size: 28rpx;
 }
 .medicalName {
   color: #000;
-  text-align: center;
-  margin: 10px 10px 0;
+  text-align: justify;
+  margin: 30rpx 0 20rpx;
   font-size: 35rpx;
   font-weight: bold;
 }
 .m-content{
-  margin: 0 10px;
+padding:0 20rpx 40rpx;
+}
+
+.author{
+  color: #0bb9f6;
+  margin: 0 0 0 20rpx;
+}
+
+page wx-text, body wx-view {
+  font-size: 30rpx;
 }

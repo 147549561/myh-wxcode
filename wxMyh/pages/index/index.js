@@ -4,6 +4,7 @@ const APPID = 'wx81efd5b083081914';
 const SECRET = '143bcf3ae727511c24c3ac0bf0438226';
 //获取应用实例
 var app = getApp()
+var self = null
 Page({
   data: {
     list: [],
@@ -21,7 +22,7 @@ Page({
   },
   onLoad: function () {
     console.log('onLoad');
-    var self = this;
+    self = this;
     self.wxLogin();
     var bannerHei = 0;
     wx.getSystemInfo({
@@ -47,8 +48,35 @@ Page({
           title: data.data.msg || '访问错误',
         })
       }
-     
     });
+  },onPullDownRefresh:function(){
+    self.wxLogin();
+    var bannerHei = 0;
+    wx.getSystemInfo({
+      success: function (res) {
+        bannerHei = res.windowWidth / 10 * 7 + "px";
+      }
+    })
+    //获取首页数据
+    api.index.getIndex({ "offset": 0, "limit": 10 }, function (data) {
+      if (data.data.code == 0) {
+        var news2 = data.data.data.news || [];
+        for (var i = 0; i < news2.length; i++) {
+          news2[i].createTime = news2[i].createTime.substr(0, 10);
+        }
+        self.setData({
+          bannerHei: bannerHei,
+          banner: data.data.data.banner,
+          doctor: data.data.data.doctor,
+          news: news2
+        });
+      } else {
+        wx.showToast({
+          title: data.data.msg || '访问错误',
+        })
+      }
+    })
+    wx.stopPullDownRefresh();
   }, toHospital: function () {
     wx.navigateTo({
       url: '../hospital/hospital'

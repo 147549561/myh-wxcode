@@ -11,6 +11,7 @@ Page({
   },
   onLoad: function () {
     that = this;
+    page = 0;
     message.hide.call(that)
     wx.getStorage({
       key: 'privateToken',

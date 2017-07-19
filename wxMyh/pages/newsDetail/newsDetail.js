@@ -1,12 +1,13 @@
 const api = require('../../utils/api.js');
 var WxParse = require('../../utils/wxParse/wxParse.js');
+var that = null;
 Page({
   /**
    * 页面的初始数据
    */
   data: {
     name: '',
-    author:'名医汇',
+    author:'',
     time:'',
     nid:1
   },
@@ -15,7 +16,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that = this
+    that = this
     that.setData({
       nid: options.nid
     })

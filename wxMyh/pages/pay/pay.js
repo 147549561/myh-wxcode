@@ -2,7 +2,7 @@ const api = require('../../utils/api.js');
 const util = require('../../utils/util.js');
 var WxParse = require('../../utils/wxParse/wxParse.js');
 var vaccinumId = null, that = null, privateToken = null;
-var orderId = null, orderType = 0, payPwd = null,fee = 0;
+var orderId = null, orderType = 0, payPwd = null, fee = 0, payType = 0;
 Page({
   /**
    * 页面的初始数据
@@ -61,7 +61,7 @@ Page({
   })
   },toPay:function(e){
     var data = e.currentTarget.dataset;
-    var payType = data.id;
+    payType = data.id;
     wx.getStorage({
       key: 'privateToken',
       success: function (res) {
@@ -118,15 +118,88 @@ Page({
       payment_mode: 1
     })
     var pdata = {
-      privateToken: privateToken,
       payType: payType,
-      orderType: orderType
+      orderType: orderType,
+      amount: fee * 100,
+      orderId: orderId
+    }
+    if(privateToken){
+      wx.getStorage({
+        key: 'privateToken',
+        success: function (res) {
+          if (res.data) {
+            pdata.privateToken = res.data;
+            pdata.type = 2;
+            wx.getStorage({
+              key: 'openid',
+              success: function (ress) {
+                pdata.openid = ress.data.openid;
+                api.pay.wxPay(pdata, function (data) {
+                  if (data.data.code == 0) {
+                    var wxPayUrl = data.data.data.wxPayUrl;
+                    console.log(wxPayUrl);
+                    wx.request({
+                      url: wxPayUrl || '',
+                      success: function (res) {
+                        console.log("wxpaydata=====================" + res.data);
+                        console.log("res.data==========" + JSON.stringify(res.data));
+                        var timeStamp = res.data.timeStamp;
+                        var nonceStr = res.data.nonceStr;
+                        var appId = res.data.appId;
+                        var prepay_id = res.data.package;
+                        var sign = res.data.sign;
+                        console.log("prepay_id==========" + prepay_id);
+                        wx.requestPayment({
+                          'appId': appId,
+                          'timeStamp': timeStamp + '',
+                          'nonceStr': nonceStr + '',
+                          'package': prepay_id + '',
+                          'signType': 'MD5',
+                          'paySign': sign,
+                          'success': function (res) {
+                            console.log("success res========" + JSON.stringify(res))
+                            util.showToast('支付成功');
+                            setTimeout(function () {
+                             wx.navigateBack({
+                               delta:2
+                             })
+                            }, 500)
+                          },
+                          'fail': function (res) {
+                            console.log("fail res========" + JSON.stringify(res))
+                            var isCancel = res.errMsg && res.errMsg.indexOf('cancel') > 0 ? true : false;
+                            if (isCancel) {
+                              util.showToast('已取消支付');
+                            } else {
+                              util.showToast(res.errMsg || '支付失败请重试');
+                            }
+                          }
+                        })
+                      },
+                      fail: function (res) {
+                        console.log("wxpayfail=====================" + JSON.stringify(res));
+                      }
+                    })
+                  } else if (data.data.code == 500 || data.data.msg == '未登录') {
+                    util.goLogin(true, '请重新登录');
+                  }
+                })
+              }
+            })
+          } else {
+            util.goLogin(true, '请重新登录');
+          }
+        }, fail: function () {
+          util.goLogin(true, '请重新登录');
+        }
+      })
     }
   },
   set_wallets_password(e) {//获取钱包密码
     that.setData({
       wallets_password: e.detail.value
     });
+    console.log("that.data.wallets_password.length=======" + that.data.wallets_password.length);
     if (that.data.wallets_password.length == 6) {//密码长度6位时，自动验证钱包支付结果
       wallet_pay(that)
     }
@@ -163,19 +236,19 @@ function wallet_pay(_this) {
     payPwd :_this.data.wallets_password,
     payType:0,
     orderType: orderType,
-    amount: price * 100,
+    amount: that.data.price * 100,
     orderId: orderId
   }
   api.pay.balancePay(pdata, function (data) {
     if (data.data.code == 0) {
       util.showToast('支付成功');
       setTimeout(function(){
-        wx.redirectTo({
-          url: '../order/order',
-        })
+       wx.navigateBack({
+         delta:1
+       })
       },1000)
     } else if (data.data.code == 1) {
-      util.showToast('余额不足，请充值或者选择其他支付方式');
+      util.showToast(data.data.msg);
     } else if (data.data.code == 500 && '未登录' == data.data.msg) {
       util.goLogin('身份失效,请重新登录');
     } else {

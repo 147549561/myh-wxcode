@@ -1,8 +1,5 @@
 const util = require('util.js');
-
 const TOKEN = '85FBCA0D01D6EB76A3888C5F8E4118D5';
-
-
 const user = {
   //用户身份
   checkBind(openId, success) {//检查是否绑定手机号
@@ -56,6 +53,9 @@ const pay ={
     pdata.token = TOKEN;
     util.mypost('user_center/myMoneyIndex', pdata, success)
   }, balancePay(pdata, success, error) {//余额支付
+    pdata.token = TOKEN;
+    util.mypost('user_pay/orderPay', pdata, success)
+  }, wxPay(pdata, success, error) {//微信支付
     pdata.token = TOKEN;
     util.mypost('user_pay/orderPay', pdata, success)
   }, checkUserPayPwd(pdata, success, error){//检查密码
@@ -147,10 +147,13 @@ const reg_num = {
   regNumView(pdata, success) {
     pdata.token = TOKEN;
     util.mypost('reg_num/regNumView', pdata, success)
-  }, reAppointSubmit(pdata, success) {//提交预约
+  }, reAppointSubmit(pdata, success) {//重新提交预约
     pdata.token = TOKEN;
     util.mypost('reg_num/reAppointSubmit', pdata, success)
-  }, appointDetail(pdata, success) {//提交预约
+  }, payView(pdata, success) {//提交预约
+    pdata.token = TOKEN;
+    util.mypost('reg_num/payView', pdata, success)
+  }, appointDetail(pdata, success) {
     pdata.token = TOKEN;
     util.mypost('user_center/appointDetail', pdata, success)
   }
@@ -164,9 +167,16 @@ const order = {
   }, order(pdata, success) {//我的订单
     pdata.token = TOKEN;
     util.mypost('user_center/order', pdata, success)
-  }, cancelOrder(pdata, success) {//取消订单
+  }, cancelOrder(pdata, success) {//取消未支付的预约订单
+    // pdata.orderType = 3;//预约订单类型
     pdata.token = TOKEN;
     util.mypost('user_center/orderCancel', pdata, success)
+  }, toComment(pdata, success) {//取消订单
+    pdata.token = TOKEN;
+    util.mypost('user_center/evaluate', pdata, success)
+  }, appointCancel(pdata, success) {//取消预约
+    pdata.token = TOKEN;
+    util.mypost('user_center/appointCancel', pdata, success)
   }
 }
 

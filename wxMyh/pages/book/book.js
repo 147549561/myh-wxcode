@@ -1,6 +1,6 @@
 var util = require('../../utils/util')
 const api = require('../../utils/api.js');
-var that = null, picker_arr = [], id_arr = [], docId = null;
+var that = null, picker_arr = [], id_arr = [], docId = null,privateToken = null;
 Page({
   data: {
     fee: 0,
@@ -41,7 +41,8 @@ Page({
     wx.getStorage({
       key: 'privateToken',
       success: function (res) {
-        pdata.privateToken = res.data;
+        privateToken = res.data;
+        pdata.privateToken = privateToken;
         console.log("res==========" + JSON.stringify(res));
         if (res.data && res.data.length > 0) {
           api.reg_num.regNumView(pdata, function (data) {
@@ -55,7 +56,6 @@ Page({
             } else {
               var data = data.data.data;
               var illnessSelect = data.illness || [];
-
               illnessSelect.forEach(function (e) {
                 picker_arr.push(e.illName);
                 id_arr.push(e.illId);
@@ -95,28 +95,36 @@ Page({
   toBook: function (e) {
     var pdata = e.detail.value
     pdata.docId = docId;
-    if ("" != that.data.appointTimeOfDate + that.data.appointTimeOfTime) {
-      pdata.appointTime = that.data.appointTimeOfDate + that.data.appointTimeOfTime;
-    } else {
+    if (pdata.appointTimeOfDate == '请选择日期'){
       util.showToast('请选择日期');
-    }
-    console.log("pdata===" + JSON.stringify(pdata));
-    if (privateToken) {
-      api.reg_num.reAppointSubmit(pdata, function (data) {
-        if (data.data.code == 500 || data.data.msg == '未登录') {
-          util.showToast('身份过期请重新登录');
-          setTimeout(function () {
-            wx.redirectTo({
-              url: '../login/login',
+    } else if ('请选择时间' == that.data.appointTimeOfTime) {
+      util.showToast('请选择时间');
+    } else if ('' == pdata.sex) {
+      util.showToast('请选择性别');
+    }else if (pdata.birthday == '请选择出生年月'){
+      util.showToast('请选择出生年月');
+    }else{
+      pdata.appointTime = that.data.appointTimeOfDate +' '+that.data.appointTimeOfTime;
+      console.log("pdata===" + JSON.stringify(pdata));
+      if (privateToken) {
+        pdata.privateToken = privateToken;
+        api.reg_num.payView(pdata, function (data) {
+          if (data.data.code == 500 || data.data.msg == '未登录') {
+            util.showToast('身份过期请重新登录');
+            setTimeout(function () {
+              wx.redirectTo({
+                url: '../login/login',
+              })
+            }, 500)
+          } else if (data.data.code == 0) {
+            console.log("orderId========" + JSON.stringify(data));
+            var orderId = data.data.data.orderId;
+            wx.navigateTo({
+              url: '../pay/pay?type=6&&order_type=预约挂号定金&&orderId=' + orderId + '&&fee=' + pdata.fee + ''
             })
-          }, 500)
-        } else if (data.data.code == 0) {
-          var orderId = data.data.data.orderId;
-          wx.navigateTo({
-            url: '../pay/pay?type=6&&order_type=预约挂号定金&&orderId=' + orderId + '&&fee=' + fee+''
-          })
-        }
-      })
+          }
+        })
+      }
     }
   },
   changeGender: function (e) {

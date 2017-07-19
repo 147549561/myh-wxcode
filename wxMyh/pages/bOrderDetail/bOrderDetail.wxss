@@ -15,3 +15,14 @@
 .content view text {
   margin: 0 30rpx;
 }
+
+.edit-btn {
+  width: 95%;
+  height: 80rpx;
+  margin: 80rpx auto 0;
+  font-size: 30rpx;
+  text-align: center;
+  line-height: 80rpx;
+  background-color: #0bb9f6;
+  color: #fff;
+}

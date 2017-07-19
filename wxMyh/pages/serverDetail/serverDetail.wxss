@@ -15,7 +15,7 @@ page {
   color: #000;
   text-align: center;
   margin: 10px 0 0 0;
-  font-size: 30rpx;
+  font-size: 35rpx;
   font-weight: bold;
 }
 
@@ -24,7 +24,7 @@ page {
 }
 
 .m-content {
-  margin: 0 5px;padding:0 0 100rpx;
+padding:0 20rpx 40rpx;
 }
 
 .mui-bar {

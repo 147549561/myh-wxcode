@@ -1,5 +1,4 @@
-const ASKURL = 'https://api.classcode.cn/';//123.207.88.225     https://api.du-ms.com/   https://api.classcode.cn/
-
+const ASKURL = 'https://api.du-ms.com/';//123.207.88.225     https://api.du-ms.com/   https://api.classcode.cn/
 function formatTime(time) {
   if (typeof time !== 'number' || time < 0) {
     return time

@@ -75,7 +75,7 @@ input, .input {
 .edit-btn {
   width: 95%;
   height: 80rpx;
-  margin: 50rpx auto 50rpx;
+  margin: 50rpx auto 60rpx;
   font-size: 30rpx;
   text-align: center;
   line-height: 80rpx;
@@ -88,6 +88,6 @@ input, .input {
 }
 
 textarea {
-  padding: 18rpx 0 0 15rpx;
+  padding: 13rpx 0 0 15rpx;
    color: #808080;
 }

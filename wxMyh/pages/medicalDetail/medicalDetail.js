@@ -1,5 +1,6 @@
 const api = require('../../utils/api.js');
 var WxParse = require('../../utils/wxParse/wxParse.js');
+var that = null;
 Page({
 
   /**
@@ -23,7 +24,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that = this, arrBanner = [],objBanner = null,content = null;
+    that = this;
+    var arrBanner = [],objBanner = null,content = null;
     var bannerHei = 0;
     wx.getSystemInfo({
       success: function (res) {

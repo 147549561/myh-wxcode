@@ -25,6 +25,8 @@
   <view >
     <text>订 单 状 态 : </text><text class="status">{{status}}</text>
   </view>
-  <block wx:if = "{{clsCancelShow}}"><button  data-id="{{orderId}}">取消预约</button></block>
-  <block wx:if = "{{clsPayShow}}"><button  data-id="{{orderId}}">支付</button></block>
 </view>
+  <block wx:if = "{{clsCancelShow}}"><button class="edit-btn" bindtap="toCancel">取消订单</button></block>
+  <block wx:if = "{{clsPayShow}}"><button class="edit-btn"  bindtap="toPay">支付</button></block>
+  <block wx:if = "{{commentShow}}"><button class="edit-btn" bindtap="toComment">评价</button></block>
+   <block wx:if = "{{clsCancelShowSucc}}"><button class="edit-btn" bindtap="toCancel_success">取消预约</button></block>

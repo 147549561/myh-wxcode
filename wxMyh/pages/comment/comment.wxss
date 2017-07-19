@@ -1,0 +1,42 @@
+.edit-btn {
+  width: 95%;
+  height: 80rpx;
+  margin: 80rpx auto 0;
+  font-size: 30rpx;
+  text-align: center;
+  line-height: 80rpx;
+  background-color: #0bb9f6;
+  color: #fff;
+}
+
+.hidden {
+  display: none;
+}
+
+button::after {
+  border: 0;
+}
+
+button {
+  background-color: #eee;
+}
+
+button[disabled][type="default"], wx-button[disabled]:not([type]) {
+  color: rgba(0, 0, 0, 0.3);
+  background-color: #eee;
+}
+
+textarea {
+  width: 90%;
+  margin: 20rpx auto;
+  border: 1px solid #dedede;
+  border-radius: 5px;
+  padding:20rpx;
+}
+
+.nubmer{
+  text-align: right;
+  margin: 5rpx 20rpx;
+  color: #666;
+  font-size: 25rpx;
+}

@@ -2,7 +2,7 @@ var util = require('../../utils/util')
 const api = require('../../utils/api.js');
 var that = null;
 
-var timeStamp = null, nonceStr = null, _package = null, signType = "MD5", paySign = null, appId = null, prepay_id = null;
+var timeStamp = null, nonceStr = null, _package = null, paySign = null, appId = null, prepay_id = null;
 Page({
   data: {
   },

@@ -33,7 +33,8 @@
     "pages/case/case",
     "pages/addCase/addCase",
     "pages/order/order",
-    "pages/bOrderDetail/bOrderDetail"
+    "pages/bOrderDetail/bOrderDetail",
+    "pages/comment/comment"
   ],
   "window": {
     "backgroundTextStyle": "#fff",

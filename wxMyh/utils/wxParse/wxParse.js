@@ -95,7 +95,7 @@ function calMoreImageInfo(e, idx, that, bindName) {
   var keyW = key + '.width'
   var keyH = key + '.height'
   that.setData({
-    [keyW]: recal.imageWidth,
+    [keyW]: recal.imageWidth-10,
     [keyH]: recal.imageheight,
   })
 }

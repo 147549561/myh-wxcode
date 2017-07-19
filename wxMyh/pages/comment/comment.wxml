@@ -1,5 +1,5 @@
 <form bindsubmit="submitFeedback"> 
-    <textarea placeholder="请留下您的反馈意见(不少于7个字)" name="content" maxlength="300" auto-focus bindinput="bindinput"/>
+    <textarea placeholder="请写出您的评价(不少于7个字)" name="content" maxlength="300" auto-focus bindinput="bindinput"/>
     <view class="nubmer">{{num}}/300</view>
     <button formType="submit" class="edit-btn" disabled="{{disabled}}">提交</button>
 </form>

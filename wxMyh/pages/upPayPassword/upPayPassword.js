@@ -28,18 +28,19 @@ Page({
       } else if (util.isNull(reNewPwd)) {
         util.showToast('请输入确认密码');
         return
-      } else if (payPwd !== reNewPwd) {
+      } else if (payPwd != reNewPwd) {
         util.showToast('两次输入密码不同');
         return
       }
       var pdata = {
         privateToken: privateToken,
         payPwd: payPwd,
-        reNewPwd: reNewPwd
+        rePayPwd: reNewPwd
       }
       console.log(pdata);
       api.user.setPayPassword(pdata, function (data) {
         if (data.data.code == 0) {
+        util.showToast('修改成功');
          wx.navigateBack({
            delta: 0
          })
@@ -65,7 +66,6 @@ Page({
     }
   }, renewPwdInput: function (e) {
     reNewPwd = e.detail.value;
-    console.log("========" + util.isPwd(reNewPwd));
     if (payPwd && payPwd.length > 0 && reNewPwd.length == 6 && util.isPwd(reNewPwd) && reNewPwd && reNewPwd.length > 0 && payPwd == reNewPwd) {
       that.setData({
         disabled: false

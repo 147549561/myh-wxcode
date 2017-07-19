@@ -1,7 +1,7 @@
 const api = require('../../utils/api.js');
 const util = require('../../utils/util.js');
 var message = require('../../component/message/message');
-var limit = 6, page = 0;
+var limit = 5, page = 0;
 var order = [], len = 0, hasMore = true,privateToken = null,that = null;
 Page({
   data: {
@@ -12,7 +12,7 @@ Page({
   },
   onLoad: function () {
     that = this;
-    page = 0;
+    page = 1;
     message.hide.call(that)
     wx.getStorage({
       key: 'privateToken',
@@ -20,12 +20,12 @@ Page({
         privateToken = res.data;
         if (privateToken) {
           //获取数据
-          api.order.order({ "offset": limit * page, "limit": limit, privateToken: privateToken }, function (data) {
+          api.order.order({ "offset": 0, "limit": limit, privateToken: privateToken }, function (data) {
             if (data.data.code == 0) {
               order = data.data.data.order;
+              
               len = order && order.length;
               hasMore = len < limit ? false : true;
-              page++;
               for (var i = 0; i < order.length; i++) {
                 if (order[i].status == '未付款') {
                   order[i].statusClass = 'unpay'
@@ -68,13 +68,12 @@ Page({
   },
   onPullDownRefresh: function () {
     message.hide.call(that);
-    page = 0;
+    page = 1;
     //获取数据
-    api.order.order({ "offset": limit * page, "limit": limit, privateToken: privateToken}, function (data) {
+    api.order.order({ "offset": 0, "limit": limit, privateToken: privateToken}, function (data) {
       order = data.data.data.order;
       len = order && order.length;
       hasMore = len < limit ? false : true;
-      page++;
       for (var i = 0; i < order.length; i++) {
         if (order[i].status == '未付款') {
           order[i].statusClass = 'unpay'
@@ -164,9 +163,10 @@ Page({
         if (res.confirm) {
           //获取数据
           api.order.cancelOrder({ oid: oid, orderType:4, privateToken: privateToken }, function (data) {
+            page = 0;
             if(data.data.code == 0){
               util.showToast('取消成功');
-              api.order.order({ "offset": limit * 0, "limit": limit, privateToken: privateToken }, function (data) {
+              api.order.order({ "offset": limit * page, "limit": limit, privateToken: privateToken }, function (data) {
                 if (data.data.code == 0) {
                   order = data.data.data.order;
                   len = order && order.length;

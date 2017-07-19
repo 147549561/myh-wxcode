@@ -39,9 +39,9 @@
     <view bindtap="toDoctor" class="lable-line">优秀名医<image class="btn-more" src="../../image/index/btn_more.png"></image></view>
     <scroll-view scroll-x="true" class="doctors-scroll-x">
       <block wx:for-items="{{doctor}}" >
-        <view class="item" data-id="{{item.uid}}" bindtap="toDoctorDetail">
+        <view class="item">
           <view class="page-column" style="text-align:center">
-            <image src="{{imgServer + item.avatar}}" mode="aspectFill" />
+            <image src="{{imgServer + item.avatar}}" mode="aspectFill"  data-id="{{item.uid}}" bindtap="toDoctorDetail"/>
             <text class="text">{{item.nickname}}<text class="text2">{{item.officeName}}</text></text>
             <button data-id="{{item.uid}}" bindtap="toBook" class="btn-quick-book">快速预约</button>
           </view>
