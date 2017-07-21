@@ -24,11 +24,11 @@
                 <picker mode="selector" value="{{sex}}" range="{{genderArray}}" bindchange="changeGender">
                     <block wx:if="{{sex == ''}}">
                         <view class="input input-placeholder">请选择性别</view>
-                        <input type="text" name="sex" value="" class="hidden" maxlength="1"/>
+                        <input type="text" name="sex" value="1" class="hidden" maxlength="1"/>
                     </block>
                     <block wx:else>
                         <view class="input">{{genderArray[sex]}}</view>
-                        <input type="text" name="sex" value="{{sex}}" class="hidden" maxlength="1"/>
+                        <input type="text" name="sex" value="{{sex+1}}" class="hidden" maxlength="1"/>
                     </block>
                 </picker>
             </view>

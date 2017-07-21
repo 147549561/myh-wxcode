@@ -58,7 +58,7 @@
         "pagePath": "pages/doctor/doctor",
         "iconPath": "image/index/ask.png",
         "selectedIconPath": "image/index/ask_pressed.png",
-        "text": "问诊"
+        "text": "专家"
       },
       {
         "pagePath": "pages/medical/medical",

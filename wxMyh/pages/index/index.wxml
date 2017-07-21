@@ -11,12 +11,6 @@
   </swiper>
   <view class="big-logo">
     <block>
-      <view bindtap="toHospital" class="logoinfo">
-        <image src="../../image/index/icon_2.png" />
-        <text class="logotext">在线诊疗</text>
-      </view>
-    </block>
-    <block>
       <view bindtap="toMedical" class="logoinfo">
         <image src="../../image/index/icon_01.png" />
         <text class="logotext">药品中心</text>
@@ -42,8 +36,8 @@
         <view class="item">
           <view class="page-column" style="text-align:center">
             <image src="{{imgServer + item.avatar}}" mode="aspectFill"  data-id="{{item.uid}}" bindtap="toDoctorDetail"/>
-            <text class="text">{{item.nickname}}<text class="text2">{{item.officeName}}</text></text>
-            <button data-id="{{item.uid}}" bindtap="toBook" class="btn-quick-book">快速预约</button>
+            <view class="text">{{item.nickname}}</view>
+            <view class="text2">{{item.officeName}}</view>
           </view>
         </view>
       </block>

@@ -80,5 +80,5 @@
             <textarea placeholder="字数限制100字" name="remark" maxlength="100" />
         </view>
     </view>
-    <button formType="submit" class="edit-btn">提交预约</button>
+    <button formType="submit" class="edit-btn">提交</button>
 </form>

@@ -12,26 +12,9 @@
     </view>
   </view>
   <view class="main">
-   <view class="big-logo">
-    <block>
-      <view class="logoinfo">
-        <image src="../../image/note.png" />
-        <text class="logotext">留言问答</text>
-      </view>
-    </block>
-    <block>
-      <view class="logoinfo">
-        <image src="../../image/online.png" />
-        <text class="logotext">在线问诊</text>
-      </view>
-    </block>
-    <block>
-      <view bindtap="toBook" class="logoinfo" style="border-right:0">
-        <image src="../../image/appointment.png" />
-        <text class="logotext">预约挂号</text>
-      </view>
-    </block>
-  </view>
+    <view class="mui-bar">
+       <button class="tel" bindtap="toBook">预约咨询</button><button class="tel"  open-type="contact">联系客服</button>
+    </view>
   <view class="bg-line"></view>
     <view class="summary">
       <view class="lable-line">
