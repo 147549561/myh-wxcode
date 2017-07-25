@@ -63,3 +63,28 @@
 button::after {
   border: 0;
 }
+
+.mui-bar-tel {
+  position: fixed;
+  z-index: 10;
+  right: 0;
+  left: 85%;
+  bottom: 5%;
+  border-bottom: 0;
+background-color: rgba(11, 185, 255, 0.7);
+  -webkit-box-shadow: 0;
+  box-shadow: 0;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  text-align: center;
+  width: 45px;
+  border-radius: 45px
+}
+
+.mui-bar-tel image {
+  width: 30px;
+  height: 30px;
+  margin: 6px 0;
+  position:relative;
+top:2px;
+}

@@ -10,7 +10,9 @@
   <view class="body">
       <template is="wxParse" data="{{wxParseData:content.nodes}}"/>
   </view>
-  <view class="mui-bar">
-    <button class="tel" bindtap="toTel">电话咨询</button><button open-type="contact" class="online">在线客服</button>
-  </view>
+    <view class="mui-bar-kf">
+       <button open-type="contact"><image src="../../image/kf.png"></image></button>  
+    </view>
+    <view class="mui-bar-tel"><image bindtap="toTel" src="../../image/tel.png"></image> 
+    </view>
 

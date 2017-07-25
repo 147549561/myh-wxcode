@@ -1,5 +1,5 @@
 const api = require('../../utils/api.js');
-var util = require('../../utils/util')
+const util = require('../../utils/util.js');
 var message = require('../../component/message/message');
 var limit = 5, page = 0;
 var arrEvaluate = [], len = 0, hasMore = true,that = null;

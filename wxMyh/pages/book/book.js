@@ -27,14 +27,11 @@ Page({
   onLoad: function (options) {
     var birthdayEndDate = util.getDate()//获取当前日期
     var appointTimeBeginDateOfTime = util.getTime()
-    console.log("birthdayEndDate======" + birthdayEndDate);
-    console.log("appointTimeBeginDateOfTime======" + appointTimeBeginDateOfTime);
     that = this
     that.setData({
       appointTimeBeginDateOfDate: birthdayEndDate,
       appointTimeBeginDateOfTime: appointTimeBeginDateOfTime
     })
-
     var pdata = {};
     pdata.docId = options.docId;
     docId = options.docId;

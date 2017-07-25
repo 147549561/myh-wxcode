@@ -1,4 +1,5 @@
 const api = require('../../utils/api.js');
+const util = require('../../utils/util.js');
 var WxParse = require('../../utils/wxParse/wxParse.js');
 var vaccinumId = null, that = null, privateToken = null;
 Page({

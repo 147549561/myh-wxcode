@@ -42,7 +42,7 @@ page {
   word-break: break-all;
   color: #666;
   margin: 10rpx 0 20rpx;
-  line-height:38rpx;
+  line-height: 38rpx;
 }
 
 .main {
@@ -138,7 +138,7 @@ page {
   width: 240rpx;
   height: 115rpx;
   border-right: 1px solid #dedede;
-  padding-top:15rpx;
+  padding-top: 15rpx;
 }
 
 .logotext {
@@ -148,33 +148,3 @@ page {
 }
 
 
-
-.mui-bar {
-  position: fixed;
-  z-index: 10;
-  right: 0;
-  left: 0;
-  bottom: 0;
-  height: 100rpx;
-  border-bottom: 0;
-  background-color: #ffffff;
-  -webkit-box-shadow: 0 0 1px #ccc;
-  box-shadow: 0 0 1px #ccc;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  text-align: center;
-}
-
-.tel{
-  width: 30%;
-  background-color: #33A2D7;
-  color: #fff;
-  font-size: 26rpx;
-  margin: 0 20rpx 0 20rpx;
-  display: inline-block;
-  border-radius: 30rpx;
-  top:20rpx;
-}
-button::after {
-  border: 0;
-}

@@ -1,6 +1,9 @@
 <import src="../../utils/wxParse/wxParse.wxml"/>
 <view class="m-content"><view class="medicalName">{{name}}</view>
 <template is="wxParse" data="{{wxParseData:content.nodes}}"/></view>
+ <view class="mui-bar-kf">
+    <button open-type="contact"><image src="../../image/kf.png"></image></button>  
+</view>
 <view class="mui-bar">
 <text class="price_left">¥<text class="price">{{price}}</text></text>
 <button bindtap="gene_checkPayView" class="price_right">付款</button>
