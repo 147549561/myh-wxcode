@@ -4,9 +4,9 @@ Page({
   data: {
     gridList: [
       { enName: 'wallet', zhName: '我的钱包'},
-      { enName: 'bookOrder', zhName: '我的预约' },
-      { enName: 'order', zhName: '我的订单' },
+      { enName: 'order', zhName: '我的记录' },
       { enName: 'case', zhName: '我的病历' },
+      { enName: 'feedback', zhName: '意见反馈' },
       { enName: 'setting', zhName: '设置' }
     ],
     contact_label:'联系客服'

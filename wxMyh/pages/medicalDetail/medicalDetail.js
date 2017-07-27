@@ -89,7 +89,7 @@ Page({
     }
   },toTel:function(){
     wx.showModal({
-      title: '确认要电话咨询吗',
+      title: '是否拨打客服电话 400-9306288',
       content: '',
       success: function (res) {
         if (res.confirm) {

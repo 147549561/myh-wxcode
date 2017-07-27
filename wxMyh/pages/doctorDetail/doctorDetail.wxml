@@ -12,19 +12,14 @@
     <view class="mui-bar-kf">
        <button open-type="contact"><image src="../../image/kf.png"></image></button>  
     </view>
+        <view class="mui-bar-tel"><image bindtap="toTel" src="../../image/tel.png"></image> 
+    </view>
   <view class="bg-line"></view>
     <view class="summary">
       <view class="lable-line">
         <text class="til">简介:</text>
       </view>
       <view class="summary-text">{{summary}}</view>
-    </view>
-    <view class="bg-line"></view>
-    <view class="goodAt">
-      <view class="lable-line">
-        <text class="til">擅长:</text>
-      </view>
-      <view class="goodAt-text">{{goodAt}}</view>
     </view>
     <view class="bg-line"></view>
     <view class="goodAt">
