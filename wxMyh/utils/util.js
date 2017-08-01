@@ -86,7 +86,7 @@ function isPwd(pwd){
 
 //公共请求方法
 function mypost(url, pdata, success, fail,method){
-  console.log("pdata======" + JSON.stringify(pdata));
+  // console.log("pdata======" + JSON.stringify(pdata));
   // console.log("askType=====" + method);
   wx.request({
     url: ASKURL + url,
@@ -97,7 +97,7 @@ function mypost(url, pdata, success, fail,method){
     method: method || 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
     success: function (res) {
       // success
-      console.log("返回结果===" + JSON.stringify(res));
+      // console.log("返回结果===" + JSON.stringify(res));
       success ? success(res) : '';
     },
     fail: fail,

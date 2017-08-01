@@ -13,6 +13,4 @@
     <view class="mui-bar-kf">
        <button open-type="contact"><image src="../../image/kf.png"></image></button>  
     </view>
-    <view class="mui-bar-tel"><image bindtap="toTel" src="../../image/tel.png"></image> 
-    </view>
 

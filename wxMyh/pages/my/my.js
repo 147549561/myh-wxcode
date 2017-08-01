@@ -41,5 +41,17 @@ Page({
       wx.navigateTo({
         url: "../" + data.url + '/' + data.url
       })
+  }, onShareAppMessage: function () {
+    return {
+      title: '名医跨境平台-个人中心',
+      path: '/pages/my/my',
+      success: function (res) {
+        // 转发成功
+        console.log("转发成功");
+      },
+      fail: function (res) {
+        // 转发失败
+      }
+    }
   }
 })

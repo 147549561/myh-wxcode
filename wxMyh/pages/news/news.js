@@ -111,5 +111,17 @@ Page({
     wx.navigateTo({
       url: "../newsDetail/newsDetail?nid=" + data.id
     })
+  }, onShareAppMessage: function () {
+    return {
+      title: '名医汇跨境平台-医疗资讯',
+      path: '/pages/news/news',
+      success: function (res) {
+        // 转发成功
+        console.log("转发成功");
+      },
+      fail: function (res) {
+        // 转发失败
+      }
+    }
   }
 })

@@ -86,5 +86,17 @@ Page({
         duration: 3000
       })
     });
+  }, onShareAppMessage: function () {
+    return {
+      title: '名医汇跨境平台-疫苗接种',
+      path: '/pages/vaccinum/vaccinum',
+      success: function (res) {
+        // 转发成功
+        console.log("转发成功");
+      },
+      fail: function (res) {
+        // 转发失败
+      }
+    }
   }
 })

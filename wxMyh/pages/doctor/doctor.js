@@ -123,5 +123,17 @@ Page({
         duration: 3000
       })
     });
+  }, onShareAppMessage: function () {
+    return {
+      title: '名医汇跨境平台-专家',
+      path: '/pages/doctor/doctor',
+      success: function (res) {
+        // 转发成功
+        console.log("转发成功");
+      },
+      fail: function (res) {
+        // 转发失败
+      }
+    }
   }
 })

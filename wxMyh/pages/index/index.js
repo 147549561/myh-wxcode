@@ -144,5 +144,17 @@ Page({
         }
       }
     });
+  }, onShareAppMessage: function () {
+    return {
+      title: '名医汇跨境平台',
+      path: '/pages/index/index',
+      success: function (res) {
+        // 转发成功
+        console.log("转发成功");
+      },
+      fail: function (res) {
+        // 转发失败
+      }
+    }
   }
 })

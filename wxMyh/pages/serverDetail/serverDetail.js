@@ -72,7 +72,7 @@ Page({
     }
   }, toTel: function () {
     wx.showModal({
-      title: '是否拨打客服电话 400-9306288',
+      title: '是否拨打客服电话 400-930-6288',
       content: '',
       success: function (res) {
         if (res.confirm) {
